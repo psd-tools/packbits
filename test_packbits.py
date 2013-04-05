@@ -31,6 +31,10 @@ def test_raw():
 def test_encode2():
     encoded = packbits.encode(b'112112')
     assert packbits.decode(encoded) == b'112112'
+    
+def test_encode_switching_rle():
+    encoded = packbits.encode(b'1122')
+    assert packbits.decode(encoded) == b'1122'
 
 def test_encode_long_rle():
     data = b'1' * 126

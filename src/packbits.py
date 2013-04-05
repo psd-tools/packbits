@@ -47,6 +47,8 @@ def encode(data):
     MAX_LENGTH = 127
 
     def finish_raw():
+        if len(buf) == 0:
+            return
         result.append(len(buf)-1)
         result.extend(buf)
         buf[:] = bytearray()
