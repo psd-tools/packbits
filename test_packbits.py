@@ -62,7 +62,7 @@ def test_encode_long_raw():
     print(encoded)
     assert packbits.decode(encoded) == data
 
-def test_encode_long_raw():
+def test_encode_long_raw2():
     data = b'12345678' * 16
     encoded = packbits.encode(data)
     assert packbits.decode(encoded) == data

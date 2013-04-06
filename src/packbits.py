@@ -59,7 +59,7 @@ def encode(data):
         result.append(256-(repeat_count - 1))
         result.append(data[pos])
 
-    while  pos < len(data)-1:
+    while pos < len(data)-1:
         current_byte = data[pos]
 
         if data[pos] == data[pos+1]:
