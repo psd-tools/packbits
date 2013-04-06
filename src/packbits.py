@@ -38,15 +38,17 @@ def encode(data):
 
     data = bytearray(data)
 
-    state = 'RLE' if data[1] == data[0] else 'RAW'
-
     result = bytearray()
     buf = bytearray()
     pos = 0
     repeat_count = 0
     MAX_LENGTH = 127
+    #we can safely start with RAW as empty RAW sequences are handled by finish_raw()
+    state = 'RAW'
 
     def finish_raw():
+        if len(buf) == 0:
+            return
         result.append(len(buf)-1)
         result.extend(buf)
         buf[:] = bytearray()
