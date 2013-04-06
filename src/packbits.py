@@ -43,7 +43,9 @@ def encode(data):
     pos = 0
     repeat_count = 0
     MAX_LENGTH = 127
-    #we can safely start with RAW as empty RAW sequences are handled by finish_raw()
+
+    # we can safely start with RAW as empty RAW sequences
+    # are handled by finish_raw()
     state = 'RAW'
 
     def finish_raw():
