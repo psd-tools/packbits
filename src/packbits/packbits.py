@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals, division, print_function
-
 def decode(data):
     """
     Decodes a PackBit encoded data.

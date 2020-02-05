@@ -1,0 +1,23 @@
+name: Python package build and publish
+
+on:
+  release:
+    types: [push, pull_request]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        container:
+          - quay.io/pypa/manylinux1_x86_64
+          - quay.io/pypa/manylinux2010_x86_64
+          - quay.io/pypa/manylinux2014_x86_64
+    container: ${{ matrix.container }}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build sdist and bdist_wheel
+      run: |
+        for PYBIN in /opt/python/*/bin; do
+            ${PYBIN}/python setup.py build_ext --inplace;
+        done

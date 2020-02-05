@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, unicode_literals
-
 import packbits
 
 DATA = b'\xFE\xAA\x02\x80\x00\x2A\xFD\xAA\x03\x80\x00\x2A\x22\xF7\xAA'
